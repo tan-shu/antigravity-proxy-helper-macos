@@ -8,7 +8,7 @@
 
 如果你只是想使用，不需要看源码，也不要下载整个仓库。请直接点击下面的链接：
 
-**[下载 Antigravity代理助手-Mac.zip](https://github.com/tan-shu/antigravity-proxy-helper-macos/raw/refs/heads/main/outputs/Antigravity代理助手-Mac.zip)**
+**[下载 Antigravity代理助手-Mac.zip](https://github.com/tan-shu/antigravity-proxy-helper-macos/raw/refs/heads/main/outputs/download/Antigravity代理助手-Mac.zip)**
 
 下载后按下面操作：
 
@@ -19,7 +19,7 @@
 5. 在助手中点击「自动识别代理」，然后点击「检测代理连接」。
 6. 完全退出 Antigravity，再点击「通过代理启动」。
 
-> 仓库页面里的 `outputs/Antigravity代理助手-Mac.zip` 就是上面这个可直接使用的文件。不要下载 `源码` 文件夹，也不需要自己编译。
+> 仓库页面里的 `outputs/download/Antigravity代理助手-Mac.zip` 就是上面这个可直接使用的文件。不要下载 `outputs/source`，也不需要自己编译。
 
 ## 使用
 
@@ -42,18 +42,27 @@
 需要 macOS 和 Xcode Command Line Tools：
 
 ```sh
-./源码/build.command
+./outputs/source/build.command
 ```
 
 构建脚本会生成并签名 `Antigravity代理助手.app`，然后运行自检。应用只使用 Apple 系统框架和 `/usr/bin/curl`，没有第三方依赖。
 
 ## 仓库文件说明
 
-- `outputs/Antigravity代理助手-Mac.zip`：**普通用户应下载的文件**，解压后即可使用
-- `outputs/Antigravity代理助手.app`：已经编译好的 App，也可以直接打开
-- `outputs/使用说明.md`：详细使用和故障排查说明
-- `源码/main.swift`：源代码，仅供开发者查看或修改
-- `源码/build.command`：从源代码重新编译的脚本，仅供开发者使用
+### 普通用户
+
+- `outputs/download/Antigravity代理助手-Mac.zip`：**唯一推荐下载的文件**，解压后即可使用
+
+### 已编译程序
+
+- `outputs/app/Antigravity代理助手.app`：已经编译好的 App，可直接打开
+
+### 说明和开发文件
+
+- `outputs/docs/使用说明.md`：详细使用和故障排查说明
+- `outputs/source/main.swift`：源代码，仅供开发者查看或修改
+- `outputs/source/build.command`：从源代码重新编译的脚本，仅供开发者使用
+- `outputs/assets/代理助手图标.png`：项目图标源文件
 
 ## 许可证
 
