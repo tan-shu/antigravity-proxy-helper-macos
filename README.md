@@ -70,6 +70,10 @@
 - `outputs/source/build.command`：从源代码重新编译的脚本，仅供开发者使用
 - `outputs/assets/代理助手图标.png`：项目图标源文件
 
-## 许可证
+## 使用许可
 
-本项目为针对 macOS 的独立启动器，和 [yuaotian/antigravity-proxy](https://github.com/yuaotian/antigravity-proxy) 没有代码隶属关系。请遵守 Antigravity、代理软件和相关服务的使用条款。
+本项目采用“个人非商业使用许可协议”。你可以免费下载、个人使用和为个人目的修改，但不能出售、收费分发、用于商业产品或删除版权声明。
+
+完整协议请查看仓库根目录的 [`LICENSE`](LICENSE) 文件。需要商业使用或其他超出协议范围的授权，请先联系版权所有者。
+
+本项目是针对 macOS 的独立启动器，和 [yuaotian/antigravity-proxy](https://github.com/yuaotian/antigravity-proxy) 没有代码隶属关系。请同时遵守 Antigravity、Google、代理软件及相关服务的使用条款。
