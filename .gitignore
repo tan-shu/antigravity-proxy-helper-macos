@@ -1,0 +1,7 @@
+work/
+.DS_Store
+*.swp
+*.tmp
+*.log
+outputs/*.zip
+outputs/源码/.build/
