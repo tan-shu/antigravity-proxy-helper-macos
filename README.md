@@ -4,38 +4,44 @@
 
 它解决的典型问题是：浏览器能访问 Google，但 Antigravity 登录时直接连接 `oauth2.googleapis.com` 超时。工具会识别常见的 Veee、Clash、Mihomo、Surge 等本机监听端口，使用 Google OAuth 接口做链路检测，并在重新启动 Antigravity 时注入 `HTTP_PROXY`、`HTTPS_PROXY`、`ALL_PROXY` 和 Chromium 的代理参数。
 
-## 先下载这个（普通用户）
+## 如果你只是想使用
 
-如果你只是想使用，不需要看源码，也不要下载整个仓库。请直接点击下面的链接：
+不用研究源码，也不用下载整个仓库。直接下载这个压缩包就可以：
 
 **[下载 Antigravity代理助手-Mac.zip](https://github.com/tan-shu/antigravity-proxy-helper-macos/raw/refs/heads/main/outputs/download/Antigravity代理助手-Mac.zip)**
 
-下载后按下面操作：
+下载后，解压并按下面的步骤操作：
 
 1. 双击 ZIP 解压。
 2. 打开解压出来的 `Antigravity代理助手.app`。
 3. 如果 macOS 提示“无法验证开发者”，在 Finder 中右键点击 App，选择“打开”，再确认一次。
-4. 先启动 Veee、Clash 或其他代理软件，再打开助手。
-5. 在助手中点击「自动识别代理」，然后点击「检测代理连接」。
-6. 完全退出 Antigravity，再点击「通过代理启动」。
+4. 先启动 Veee、Clash 或其他代理软件，并连接好节点。
+5. 打开代理助手，点击「自动识别代理」，再点击「检测代理连接」。
+6. 如果 Antigravity 已经打开，请先完全退出它，然后回到助手，点击「通过代理启动」。
 
-> 仓库页面里的 `outputs/download/Antigravity代理助手-Mac.zip` 就是上面这个可直接使用的文件。不要下载 `outputs/source`，也不需要自己编译。
+仓库里如果看到 `outputs/source`、`outputs/app` 等文件夹，不用下载它们；它们分别是源码和开发用文件。普通用户只需要上面的 ZIP 文件。
 
-## 使用
+## 它是做什么的？
 
-1. 打开你的代理软件并连接可用节点。
-2. 双击 `Antigravity代理助手.app`。
-3. 点击「自动识别代理」，或手动填写 HTTP／SOCKS5 地址和端口。
-4. 点击「检测代理连接」，确认能收到 Google 的 HTTP 响应。
-5. 完全退出 Antigravity（菜单栏「Antigravity → Quit Antigravity」）。
+这个小工具会检查本机代理是否能访问 Google，然后带着正确的代理配置启动 Antigravity。这样可以解决“浏览器能上 Google，但 Antigravity 登录时连接超时”的情况。
+
+每次需要登录或使用 Antigravity 时，建议都从这个助手启动。直接从 Dock、Spotlight 或 Finder 打开 Antigravity，可能不会带上代理配置。
+
+## 详细使用步骤
+
+1. 打开代理软件，并连接一个可用节点。
+2. 打开 `Antigravity代理助手.app`。
+3. 点击「自动识别代理」。如果没有识别到，也可以手动填写 HTTP 或 SOCKS5 地址和端口。
+4. 点击「检测代理连接」，看到检测成功后再继续。
+5. 完全退出 Antigravity（菜单栏选择「Antigravity → Quit Antigravity」）。
 6. 回到助手，点击「通过代理启动」。
-7. 在 Antigravity 中点击「Continue with Google」完成登录。
+7. 在 Antigravity 中点击「Continue with Google」登录。
 
-必须从助手启动新的 Antigravity 进程；从 Dock、Spotlight 或 Finder 直接打开，可能不会继承代理环境变量。
+如果登录仍然失败，先确认代理软件正在运行，再重复第 5、6 步。必要时可以打开 `outputs/docs/使用说明.md` 查看排查建议。
 
-## macOS 限制
+## 说明
 
-这是启动器和诊断工具，不是 Windows 版 DLL 的 macOS 移植。它不修改系统代理，不解密 HTTPS，也不接触账号密码或 OAuth token。某些不读取环境变量的原生组件可能仍需透明代理或 TUN 模式。
+这是一个 macOS 启动器和诊断工具，不是 Windows 版 DLL 的 macOS 移植。它不会修改系统代理、解密 HTTPS，也不会读取账号密码或 OAuth token。少数不读取环境变量的组件，可能仍需要代理软件开启透明代理或 TUN 模式。
 
 ## 构建
 
@@ -47,11 +53,11 @@
 
 构建脚本会生成并签名 `Antigravity代理助手.app`，然后运行自检。应用只使用 Apple 系统框架和 `/usr/bin/curl`，没有第三方依赖。
 
-## 仓库文件说明
+## 文件夹怎么分？
 
 ### 普通用户
 
-- `outputs/download/Antigravity代理助手-Mac.zip`：**唯一推荐下载的文件**，解压后即可使用
+- `outputs/download/Antigravity代理助手-Mac.zip`：**普通用户下载这个**，解压后即可使用
 
 ### 已编译程序
 
