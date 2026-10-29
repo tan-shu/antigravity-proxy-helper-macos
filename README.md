@@ -4,6 +4,23 @@
 
 它解决的典型问题是：浏览器能访问 Google，但 Antigravity 登录时直接连接 `oauth2.googleapis.com` 超时。工具会识别常见的 Veee、Clash、Mihomo、Surge 等本机监听端口，使用 Google OAuth 接口做链路检测，并在重新启动 Antigravity 时注入 `HTTP_PROXY`、`HTTPS_PROXY`、`ALL_PROXY` 和 Chromium 的代理参数。
 
+## 先下载这个（普通用户）
+
+如果你只是想使用，不需要看源码，也不要下载整个仓库。请直接点击下面的链接：
+
+**[下载 Antigravity代理助手-Mac.zip](https://github.com/tan-shu/antigravity-proxy-helper-macos/raw/refs/heads/main/outputs/Antigravity代理助手-Mac.zip)**
+
+下载后按下面操作：
+
+1. 双击 ZIP 解压。
+2. 打开解压出来的 `Antigravity代理助手.app`。
+3. 如果 macOS 提示“无法验证开发者”，在 Finder 中右键点击 App，选择“打开”，再确认一次。
+4. 先启动 Veee、Clash 或其他代理软件，再打开助手。
+5. 在助手中点击「自动识别代理」，然后点击「检测代理连接」。
+6. 完全退出 Antigravity，再点击「通过代理启动」。
+
+> 仓库页面里的 `outputs/Antigravity代理助手-Mac.zip` 就是上面这个可直接使用的文件。不要下载 `源码` 文件夹，也不需要自己编译。
+
 ## 使用
 
 1. 打开你的代理软件并连接可用节点。
@@ -30,12 +47,13 @@
 
 构建脚本会生成并签名 `Antigravity代理助手.app`，然后运行自检。应用只使用 Apple 系统框架和 `/usr/bin/curl`，没有第三方依赖。
 
-## 文件
+## 仓库文件说明
 
-- `源码/main.swift`：AppKit 界面、端口识别、连通性检测和代理启动逻辑
-- `源码/build.command`：本机编译和签名脚本
-- `outputs/Antigravity代理助手.app`：可直接双击的应用
+- `outputs/Antigravity代理助手-Mac.zip`：**普通用户应下载的文件**，解压后即可使用
+- `outputs/Antigravity代理助手.app`：已经编译好的 App，也可以直接打开
 - `outputs/使用说明.md`：详细使用和故障排查说明
+- `源码/main.swift`：源代码，仅供开发者查看或修改
+- `源码/build.command`：从源代码重新编译的脚本，仅供开发者使用
 
 ## 许可证
 
